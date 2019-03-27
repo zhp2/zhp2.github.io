@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>zhp&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: my-first-blogdate: 2019-03-21 19:55:22tags:欢迎来访description: daijvo">
+  <meta name="description" content="title: C#部分内容date: 2019-03-21 19:55:22tags:C#content:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zhp&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/my-first-blog/index.html">
 <meta property="og:site_name" content="zhp&#39;s blog">
-<meta property="og:description" content="title: my-first-blogdate: 2019-03-21 19:55:22tags:欢迎来访description: daijvo">
+<meta property="og:description" content="title: C#部分内容date: 2019-03-21 19:55:22tags:C#content:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T05:34:36.359Z">
+<meta property="og:updated_time" content="2019-03-27T09:02:37.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zhp&#39;s blog">
-<meta name="twitter:description" content="title: my-first-blogdate: 2019-03-21 19:55:22tags:欢迎来访description: daijvo">
+<meta name="twitter:description" content="title: C#部分内容date: 2019-03-21 19:55:22tags:C#content:">
   
     <link rel="alternative" href="/atom.xml" title="zhp&#39;s blog" type="application/atom+xml">
   
@@ -142,7 +142,22 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>title: my-first-blog<br>date: 2019-03-21 19:55:22<br>tags:欢迎来访<br>description: daijvo</p>
+<p>title: C#部分内容<br>date: 2019-03-21 19:55:22<br>tags:C#<br>content:<br><a id="more"></a><br>数组<br>一维数组<br>  int[] array=new int[]{}<br>二维数组<br>   int[,] array=new int[,]{}<br>交错数组<br>   int[][] jagarray=new int [3][];<br>   jagarray[0] =new int[5];<br>   jagarray[1] =new int[3];<br>   jagarray[2] =new int[4];<br>方法: a.Length   // 计算数组长度<br>          Random  //生成随机数组<br>                         ex:  Random r =new Random()<br>                                r.Next(1,100)   //生成1-99的随机整数<br>          foreach (类型  in  数组)<br>                    {<br>                            体<br>                     }</p>
+<p> 类型转换<br>1.隐式转换<br>   short s=1;<br>   int i=s;<br>   隐式转换无法完成由高精度的数据类型向低精度的数据类型进行转换<br>   int i =1;<br>   short s=i;<br>2.显示转换<br>float a=3.5f;<br>int i=(int)(a+5.1)</p>
+<p>3.使用方法进行数据类型的转换<br>ex：(1)int i = int.Parse(“100”)<br>           int a;<br>  int i =int.Parse(Console.ReadLine(a));     ReadLine默认输入类型为字符串        //int.Parse只可以转换符合整形格式的字符串<br>       (2)Convert 类 ToInt32,Tochar,ToBoolean   int m= Convert.ToInt32(Console.ReadLine(a));<br>       (3)ToString方法    ex: int n=97; string t=Convert.ToChar(n).ToString() //t=’a’</p>
+<p>•如果希望父类某个方法的实现能够在子类中进一步得到改进，那么    将父类的该方法定义为虚方法，使用virtual关键字定义虚方法<br>•如果希望改进父类的某个虚方法，使用override关 键字覆盖父类的方法，提供自己的实现就可以了<br>•当覆盖虚方法时，覆盖的方法必须与被覆盖的方法具有相同的方法签名<br>•抽象类只能作为其它类的基类，它不能直接被实例化</p>
+<p>类的默认修饰符  internal</p>
+<p>四种类型的参数        ● 值参数（传值 不影响实参的值）<br>                                ● 引用参数（传地址  参数用ref修饰   影响实参的值       需要初始化赋值）<br>                                ● 输出参数（传地址   参数用out修饰   无需初始化赋值）<br>                                ● 参数数组（用params修饰符定义的参数称为参数数组，它允许向函数传递个数可变的参数。Void MutiParams( params int[ ] var )     不可与ref  out合用<br>继承 base<br>C#支持两种多态性:<br>编译时多态性，是在程序编译时就决定如何实现某一动作，是通过方法重载和运<br>算符重载实现的。<br>是运行时多态性，是在运行时动态实现某一动作，是通过继承和虚成员实现的。<br>abstract抽象<br>interface接口<br>delegate委托</p>
+<p>•抽象类<br>abstract class Vehicle//定义汽车类<br>{public int wheels;//公有成员 轮子个数protected float weight;//保护成员 重量<br>public Vehicle(int w,float g)<br>{wheels = w;weight = g;}<br>public virtual void Speak()<br>{Console.WriteLine(“the w vehicle is speaking!”);</p>
+<p>class Car:Vehicle //定义轿车类<br>{int passengers;//私有成员 乘客数<br>public Car(int w,float g,int p) : base(w,g){<br>passengers = p;}<br>public override void Speak()<br>{Console.WriteLine(“The car is speaking:Di-di!”);}</p>
+<p>窗体<br>• 1. 标签Label<br>• 2. 文本框TextBox<br>• 3. 按钮Button<br>• 4. 单选按钮RadioButton和复选框CheckBox<br>• 5. 列表框ListBox<br>• 6. 组合框ComboBox<br>• 7. 图片框PictureBox<br>常用控件特有属性：<br>（1）Checked：单选按钮RadioButton和复选框CheckBox中标识该单选按钮或复选框是否被选中。<br>（2）Image：用于设置PictureBox控件中显示的图片。比如设置PictureBox控件的Image属性，其格式为：图片框名.Image =Image.FromFile(“文件路径”);<br>（3）SelectedItem：列表框中所选择项中的最上面一项。比如：将列表框中中所选择项的最上面一项值赋给str：<br>string str = (string)listBox1.SelectedItem;<br>（4）SelectedItems：列表框中的所有项<br>例如：读取列表框中所有被选中项<br>        string str；<br>        str = “”;<br>        foreach (object t in listBox1.SelectedItems){str = str + (string)t；}</p>
+<p>共有事件：<br>（1）Click事件：鼠标单击时会触发该事件。<br>特有事件：<br>（1）TextChanged：TextBox本文内容发生改变时触发。<br>（2）CheckedChanged：单选按钮和复选框状态改变触发的事件。<br>（3）CheckStateChanged：复选框状态改变触发的事件。<br>注意：当复选框的Checked属性值改变后，触发CheckedChang事件；<br>当单击单选复选框时，触发Click事件；当复选框的CheckState属性值改变后，触发CheckStateChanged事件。<br>每次单击复选框时，都会触发CheckStateChanged和Click事件，但不会每次都触发CheckedChanged事件。当复选框的状态在“选中”和“不确定”之间切换时，Checked属性值不变（值为true），此时不会触发CheckedChanged事<br>件。<br>当三个事件都触发时，触发的次序为：CheckedChanged、CheckStateChanged、Click。<br>（4）SelectedIndexChanged：列表框和组合框中的选中项发生改变时触发该事件</p>
+<p>方法<br>（1）文本框的常用方法：clear()，清除文本框中的内容</p>
+<p>• 工具栏ToolStrip• 状态栏StatusStrip</p>
+<p>通用对话框<br>• OpenFileDialog：打开文件对话框<br>• SaveFileDialog：保存文件对话框<br>• FontDialog：字体对话框<br>• ColorDialog：颜色对话框</p>
+<p>常用属性（1）FileName：打开文件的路径常用方法<br>（1）ShowDialog：显示对话框例如，调用打开文件对话框将对话款中选择的文件路径取出：if (openFileDialog1.ShowDialog() == DialogResult.OK)<br>{string info = openFileDialog1.FileName}；</p>
+<p>• 常用属性（1）Font：设置的字体信息<br>（2）Color：设置的颜色信息例如，将textBox1控件的字体和颜色设置为字体对话框中选的字体和颜色：if (fontDialog1.ShowDialog() == DialogResult.OK){textBox1.Font = fontDialog1.Font;textBox1.ForeColor = fontDialog.Color}</p>
+<p>（1）Color：设置的颜色信息例如，将Textbox1的前景颜色设置为颜色对话框中选择的颜色。if (colorDialog1.ShowDialog() == DialogResult.OK)<br>              {textBox1.ForeColor = colorDialog1.Color}</p>
 
       
 
@@ -240,7 +255,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          My New Post
+          (no title)
         
       </div>
     </a>
