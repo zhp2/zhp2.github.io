@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>青花 中国龙</title>
     <style>
-        p {
-            background-color: navy;
-            color: white;
-            padding: 5px;
-        }
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -20,26 +14,35 @@
         .container {
             text-align: center;
             padding: 20px;
+            background-color: transparent;
         }
 
         img {
             max-width: 100%;
             height: auto;
-            margin-bottom: 10px;
+            margin-bottom: 0px;
         }
-
-        p {
-            margin-bottom: 10px;
-        }
+       .multi-line-text {
+           width: 100%;
+           background-color: #20348C;
+           color: white;
+           padding: 0px;
+           line-height: 1.5;
+       }
+       .multi-line-text p {
+           margin: 5px 0;
+       }
     </style>
 </head>
 <body>
     <div class="container">        
-         <p>产品名称：青花·中国龙</p>
-         <p>酒精度：53%vol</p>
-         <p>净含量：500mL</p>
-         <p>全国统一零售价：1188元/盒</p>
-         <p>中国·山西杏花村出品</p>
+        <div class="multi-line-text">
+           <p>产品名称：青花·中国龙</p>
+           <p>酒精度：53%vol</p>
+           <p>净含量：500mL</p>
+           <p>全国统一零售价：1188元/盒</p>
+           <p>中国·山西杏花村出品</p>
+       </div>
         <img src="./img/1.jpg" alt="Image 1">
         <img src="./img/3.png" alt="Image 2">
         <img src="./img/6.png" alt="Image 3">
