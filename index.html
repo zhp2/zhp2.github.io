@@ -2,49 +2,196 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>青花 中国龙</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>青花·中国龙 | 产品详情</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* 全局重置 - 扫码页面极致优化 */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .container {
-            text-align: center;
-            padding: 20px;
-            background-color: transparent;
+        body {
+            font-family: "SimHei", "Microsoft Yahei", sans-serif;
+            background: linear-gradient(180deg, #0A1A47 0%, #152969 100%);
+            min-height: 100vh;
+            padding: 10px;
+            touch-action: manipulation; /* 禁止双击缩放 */
         }
 
-        img {
+        /* 主容器 - 扫码后快速聚焦 */
+        .scan-container {
             max-width: 100%;
-            height: auto;
-            margin-bottom: 0px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            animation: fadeIn 0.6s ease-out; /* 快速加载动画 */
         }
-       .multi-line-text {
-           width: 100%;
-           background-color: #20348C;
-           color: white;
-           padding: 0px;
-           line-height: 1.5;
-       }
-       .multi-line-text p {
-           margin: 5px 0;
-       }
+
+        /* 顶部鎏金装饰条 - 国风高端感 */
+        .gold-decor {
+            height: 6px;
+            background: linear-gradient(90deg, #D4B868, #F2E098, #D4B868);
+        }
+
+        /* 产品信息区 - 置顶展示 */
+        .info-section {
+            padding: 25px 20px 30px;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* 产品名称 - 超大字号 视觉焦点 */
+        .product-title {
+            font-size: 32px; /* 大幅放大品名 */
+            font-weight: bold;
+            color: #F2E098;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            line-height: 1.3;
+        }
+
+        /* 信息列表 - 超大字号 易读 */
+        .info-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 10px; /* 加大内边距 */
+            font-size: 20px; /* 大幅放大参数文字 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 1.4;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #E0E0E0;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* 图片展示区 - 信息区下方 */
+        .image-section {
+            padding: 0 20px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+            animation: imgLoad 0.7s ease-out;
+        }
+
+        .product-img:hover {
+            transform: scale(1.01); /* 轻微缩放，不夸张 */
+        }
+
+        /* 底部轻量提示 */
+        .footer-tip {
+            padding: 12px;
+            text-align: center;
+            font-size: 14px; /* 放大底部提示文字 */
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* 核心动画 - 控制速度，适配扫码加载 */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes imgLoad {
+            0% { opacity: 0; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* 响应式适配不同手机 - 大屏继续放大 */
+        @media (min-width: 400px) {
+            .product-title { font-size: 36px; }
+            .info-item { font-size: 22px; }
+            .info-card { padding: 25px; }
+        }
     </style>
 </head>
-<body style="background-color: #20348C;">
-    <div class="container">        
-        <div class="multi-line-text">
-           <p>产品名称：青花·中国龙</p>
-           <p>酒精度：53%vol</p>
-           <p>净含量：500mL</p>
-           <p>全国统一零售价：1288元/盒</p>
-           <p>中国·山西杏花村出品</p>
-       </div>
-        <img src="./img/1.jpg" alt="Image 1">
-        <img src="./img/8.png" alt="Image 2">
+<body>
+    <div class="scan-container">
+        <!-- 顶部装饰条 -->
+        <div class="gold-decor"></div>
+
+        <!-- 文字信息区（置顶）- 超大字号 -->
+        <div class="info-section">
+            <div class="product-title">青花 · 中国龙</div>
+            <div class="info-card">
+                <div class="info-item">
+                    <span class="info-label">酒精度</span>
+                    <span class="info-value">53%vol</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">净含量</span>
+                    <span class="info-value">500mL</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">全国统一零售价</span>
+                    <span class="info-value">1288元/盒</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">出品方</span>
+                    <span class="info-value">中国·山西杏花村</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图片展示区（信息区下方） -->
+        <div class="image-section">
+            <img src="./img/1.jpg" alt="青花·中国龙产品主图" class="product-img">
+            <img src="./img/8.png" alt="青花·中国龙产品细节" class="product-img">
+        </div>
+
+        <!-- 底部提示 -->
+        <div class="footer-tip">
+            正品保障 · 扫码验证成功
+        </div>
     </div>
+
+    <script>
+        // 扫码页面专属优化：控制加载速度，避免卡顿
+        document.addEventListener('DOMContentLoaded', function() {
+            // 图片分序加载，减轻首屏压力
+            const images = document.querySelectorAll('.product-img');
+            images.forEach((img, index) => {
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    img.style.opacity = '1';
+                }, 150 * (index + 1)); // 每张延迟150ms，流畅加载
+            });
+
+            // 禁止页面缩放（扫码场景必备）
+            document.addEventListener('touchmove', function(e) {
+                if (e.scale !== 1) e.preventDefault();
+            }, { passive: false });
+        });
+    </script>
 </body>
 </html>
