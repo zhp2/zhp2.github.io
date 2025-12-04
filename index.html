@@ -2,49 +2,232 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>青花 中国龙</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>青花·中国龙 | 产品详情</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* 全局重置 - 手机端专属优化 */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .container {
+        body {
+            font-family: "SimHei", "Microsoft Yahei", sans-serif;
+            background: linear-gradient(180deg, #0A1A47 0%, #152969 100%);
+            min-height: 100vh;
+            padding: 8px;
+            touch-action: manipulation;
+        }
+
+        /* 主容器 - 适配所有手机宽度 */
+        .scan-container {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* 顶部装饰条 */
+        .gold-decor {
+            height: 6px;
+            background: linear-gradient(90deg, #D4B868, #F2E098, #D4B868);
+        }
+
+        /* 产品信息区 - 手机端适配 */
+        .info-section {
+            padding: 20px 15px 25px;
+            color: #fff;
             text-align: center;
-            padding: 20px;
-            background-color: transparent;
+            width: 100%;
         }
 
-        img {
+        /* 产品名称 - 适配一行显示 */
+        .product-title {
+            font-size: clamp(24px, 8vw, 32px); /* 响应式字号 */
+            font-weight: bold;
+            color: #F2E098;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            white-space: nowrap; /* 强制一行 */
+            overflow: hidden;
+            text-overflow: ellipsis;
             max-width: 100%;
-            height: auto;
-            margin-bottom: 0px;
         }
-       .multi-line-text {
-           width: 100%;
-           background-color: #20348C;
-           color: white;
-           padding: 0px;
-           line-height: 1.5;
-       }
-       .multi-line-text p {
-           margin: 5px 0;
-       }
+
+        /* 信息卡片 - 手机端宽度适配 */
+        .info-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 15px 10px;
+            width: 100%;
+        }
+
+        /* 信息项 - 确保一行显示 */
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 8px;
+            font-size: clamp(16px, 5vw, 19px); /* 响应式字号 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            white-space: nowrap; /* 强制一行 */
+            width: 100%;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        /* 信息标签和值 - 分行权重，确保一行 */
+        .info-label {
+            color: #E0E0E0;
+            font-weight: 500;
+            flex: 0 0 auto;
+            margin-right: 10px;
+        }
+
+        .info-value {
+            color: #fff;
+            font-weight: bold;
+            flex: 1 1 auto;
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 图片展示区 - 手机端适配 */
+        .image-section {
+            padding: 0 15px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: imgLoad 0.7s ease-out;
+        }
+
+        /* 底部提示 */
+        .footer-tip {
+            padding: 10px;
+            text-align: center;
+            font-size: clamp(12px, 3vw, 14px);
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+        }
+
+        /* 动画 */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes imgLoad {
+            0% { opacity: 0; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* 针对小屏手机的特殊适配 */
+        @media (max-width: 320px) {
+            .info-item {
+                font-size: 15px;
+                padding: 10px 5px;
+            }
+            .product-title {
+                font-size: 22px;
+            }
+        }
+
+        /* 大屏手机优化 */
+        @media (min-width: 400px) {
+            .info-item {
+                font-size: 20px;
+                padding: 15px 10px;
+            }
+            .product-title {
+                font-size: 34px;
+            }
+            .info-card {
+                padding: 20px 15px;
+            }
+        }
     </style>
 </head>
-<body style="background-color: #20348C;">
-    <div class="container">        
-        <div class="multi-line-text">
-           <p>产品名称：青花·中国龙</p>
-           <p>酒精度：53%vol</p>
-           <p>净含量：500mL</p>
-           <p>全国统一零售价：1288元/盒</p>
-           <p>中国·山西杏花村出品</p>
-       </div>
-        <img src="./img/1.jpg" alt="Image 1">
-        <img src="./img/8.png" alt="Image 2">
+<body>
+    <div class="scan-container">
+        <!-- 顶部装饰条 -->
+        <div class="gold-decor"></div>
+
+        <!-- 文字信息区 - 确保一行显示 -->
+        <div class="info-section">
+            <div class="product-title">青花 · 中国龙</div>
+            <div class="info-card">
+                <div class="info-item">
+                    <span class="info-label">酒精度：</span>
+                    <span class="info-value">53%vol</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">净含量：</span>
+                    <span class="info-value">500mL</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">零售价：</span>
+                    <span class="info-value">1288元/盒</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">出品方：</span>
+                    <span class="info-value">中国·山西杏花村</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图片展示区 -->
+        <div class="image-section">
+            <img src="./img/1.jpg" alt="青花·中国龙产品主图" class="product-img">
+            <img src="./img/8.png" alt="青花·中国龙产品细节" class="product-img">
+        </div>
+
+        <!-- 底部提示 -->
+        <div class="footer-tip">
+            正品保障 · 扫码验证成功
+        </div>
     </div>
+
+    <script>
+        // 手机端适配优化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 图片分序加载
+            const images = document.querySelectorAll('.product-img');
+            images.forEach((img, index) => {
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    img.style.opacity = '1';
+                }, 150 * (index + 1));
+            });
+
+            // 禁止缩放
+            document.addEventListener('touchmove', function(e) {
+                if (e.scale !== 1) e.preventDefault();
+            }, { passive: false });
+
+            // 确保页面适配手机屏幕
+            function adjustViewport() {
+                const meta = document.querySelector('meta[name="viewport"]');
+                meta.setAttribute('content', `width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no`);
+            }
+            adjustViewport();
+            window.addEventListener('resize', adjustViewport);
+        });
+    </script>
 </body>
 </html>
